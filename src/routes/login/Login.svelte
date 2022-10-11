@@ -2,7 +2,7 @@
     import LoginCard from "../../lib/components/LoginCard.svelte";
     import uowLogoBig from "../../assets/logo/uowLogoBig.png";
 
-    import { url } from "../../lib/stores/url.js";
+    import { apiUrl, frontendUrl } from "../../lib/stores/url.js";
 
     let error = {
         formInputs: false,
@@ -15,7 +15,7 @@
     };
 
     const postReq = async (status) => {
-        const res = await fetch(`${$url}/api/user/${status}`, {
+        const res = await fetch(`${$apiUrl}/api/user/${status}`, {
             method: "POST", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",
@@ -26,11 +26,11 @@
         if (data.student_details) {
             sessionStorage.clear();
             sessionStorage.setItem("student", "true");
-            window.location.assign(`${$url}/#/student`);
+            window.location.assign(`${$frontendUrl}/#/student`);
         } else if (data.staff_details) {
             sessionStorage.clear();
             sessionStorage.setItem("staff", "true");
-            window.location.assign(`${$url}/#/staff`);
+            window.location.assign(`${$frontendUrl}/#/staff`);
         } else {
             error.fetchResult = true;
         }
