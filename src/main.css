@@ -1,0 +1,6 @@
+.backdrop {
+    background-image: url("./assets/gradient-Bg.jpeg");
+    background-repeat: repeat;
+    background-size: cover; /* Resize the background image to cover the entire container */
+    /* background-color: #cccccc; */
+}
