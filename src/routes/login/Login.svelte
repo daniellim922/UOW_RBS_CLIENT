@@ -26,11 +26,11 @@
         if (data.student_details) {
             sessionStorage.clear();
             sessionStorage.setItem("student", "true");
-            window.location.assign("http://127.0.0.1:5173/#/student");
+            window.location.assign(`${url}/#/student`);
         } else if (data.staff_details) {
             sessionStorage.clear();
             sessionStorage.setItem("staff", "true");
-            window.location.assign("http://127.0.0.1:5173/#/staff");
+            window.location.assign(`${url}/#/staff`);
         } else {
             error.fetchResult = true;
         }
