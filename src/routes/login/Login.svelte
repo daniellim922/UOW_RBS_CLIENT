@@ -1,6 +1,6 @@
 <script>
     import LoginCard from "../../lib/components/LoginCard.svelte";
-    import uowLogoBig from "../../assets/uowLogoBig.png";
+    import uowLogoBig from "../../assets/logo/uowLogoBig.png";
 
     import { url } from "../../lib/stores/url.js";
 

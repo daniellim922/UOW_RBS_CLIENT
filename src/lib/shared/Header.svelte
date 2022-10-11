@@ -1,5 +1,5 @@
 <script>
-    import uowLogo from "../../assets/uowLogo.png";
+    import uowLogo from "../../assets/logo/uowLogo.png";
     let studentSession = sessionStorage.getItem("student");
     let staffSession = sessionStorage.getItem("staff");
 
