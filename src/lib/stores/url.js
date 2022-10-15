@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export const prod = true;
+export const prod = writable(true);
 
 export const localClient = writable("http://localhost:5173");
 export const localServer = writable("http://localhost:3000");

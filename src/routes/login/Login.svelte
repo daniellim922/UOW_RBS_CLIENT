@@ -13,7 +13,7 @@
     let clientUrl = null;
     let serverUrl = null;
 
-    if (prod) {
+    if ($prod) {
         clientUrl = $localClient;
         serverUrl = $localServer;
     } else {
