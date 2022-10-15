@@ -1,7 +1,17 @@
 <script>
+    import { localClient, prod, hostedClient } from "../../lib/stores/url.js";
+
+    let clientUrl = null;
+
+    if ($prod) {
+        clientUrl = $hostedClient;
+    } else {
+        clientUrl = $localClient;
+    }
+
     const logout = () => {
         sessionStorage.clear();
-        window.location.assign("http://localhost:5173/");
+        window.location.assign(`${clientUrl}/`);
     };
 </script>
 
