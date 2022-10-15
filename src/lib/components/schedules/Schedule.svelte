@@ -6,8 +6,16 @@
 
     const newSlot = () => {
         let newSlot = {
-            timeSlots: [{ start: "", end: "", price: 0 }],
-            days: $days,
+            timeSlots: [{ start: "", end: "", price: 0, promo: "" }],
+            days: [
+                { Monday: false },
+                { Tuesday: false },
+                { Wednesday: false },
+                { Thursday: false },
+                { Friday: false },
+                { Saturday: false },
+                { Sunday: false },
+            ],
         };
         $room.allSlots.push(newSlot);
         $room = $room;
@@ -22,6 +30,7 @@
             start: "",
             end: "",
             price: 0,
+            promo: "",
         };
         $room.allSlots[i].timeSlots.push(addTimeSlot);
         $room = $room;

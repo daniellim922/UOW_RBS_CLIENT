@@ -1,6 +1,6 @@
 <script>
     export let slotIndex, i, timeSlot;
-    import { room, days } from "../../stores/room.js";
+    import { room } from "../../stores/room.js";
 
     const deleteTimeSlot = (slotIndex, i) => {
         $room.allSlots[slotIndex].timeSlots.splice(i, 1);
@@ -23,11 +23,15 @@
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text" id="price-{slotIndex}-{i}">$</span>
+        <input type="number" class="form-control" bind:value={timeSlot.price} />
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="promo-{slotIndex}-{i}">UOW</span>
         <input
-            type="number"
+            type="text"
             class="form-control"
-            aria-label="Amount (to the nearest dollar)"
-            bind:value={timeSlot.price}
+            placeholder="Promo Code"
+            bind:value={timeSlot.promo}
         />
     </div>
 </div>

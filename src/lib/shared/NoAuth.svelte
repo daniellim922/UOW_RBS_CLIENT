@@ -9,7 +9,7 @@
         <img src={michael} alt="" srcset="" style="width: 45rem" />
         <hr />
         <p class="mb-0">
-            <a href="/#/login">Go here to login</a>
+            <a href="/">Go here to login</a>
         </p>
     </div>
 </section>

@@ -17,6 +17,7 @@
         "@tsconfig/svelte": "^3.0.0",
         "bootstrap": "^5.2.2",
         "bootstrap-icons": "^1.9.1",
+        "dotenv": "^16.0.3",
         "feather-icons": "^4.29.0",
         "svelte-spa-router": "^3.3.0"
     }

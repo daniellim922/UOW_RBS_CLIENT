@@ -2,7 +2,46 @@
     import LoginCard from "../../lib/components/LoginCard.svelte";
     import uowLogoBig from "../../assets/logo/uowLogoBig.png";
 
-    import { apiUrl, frontendUrl } from "../../lib/stores/url.js";
+    import {
+        localClient,
+        localServer,
+        prod,
+        hostedClient,
+        hostedServer,
+    } from "../../lib/stores/url.js";
+
+    let clientUrl = null;
+    let serverUrl = null;
+
+    if (prod) {
+        clientUrl = $localClient;
+        serverUrl = $localServer;
+    } else {
+        clientUrl = $hostedClient;
+        serverUrl = $hostedServer;
+    }
+
+    const postReq = async (status) => {
+        const res = await fetch(`${serverUrl}/api/user/${status}`, {
+            method: "POST", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        });
+        const data = await res.json();
+        if (data.student_details) {
+            // sessionStorage.clear();
+            sessionStorage.setItem("student", "true");
+            window.location.assign(`${clientUrl}/#/student`);
+        } else if (data.staff_details) {
+            // sessionStorage.clear();
+            sessionStorage.setItem("staff", "true");
+            window.location.assign(`${clientUrl}/#/staff`);
+        } else {
+            error.fetchResult = true;
+        }
+    };
 
     let error = {
         formInputs: false,
@@ -12,28 +51,6 @@
         username: null,
         password: null,
         status: null,
-    };
-
-    const postReq = async (status) => {
-        const res = await fetch(`${$apiUrl}/api/user/${status}`, {
-            method: "POST", // or 'PUT'
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
-        });
-        const data = await res.json();
-        if (data.student_details) {
-            sessionStorage.clear();
-            sessionStorage.setItem("student", "true");
-            window.location.assign(`${$frontendUrl}/#/student`);
-        } else if (data.staff_details) {
-            sessionStorage.clear();
-            sessionStorage.setItem("staff", "true");
-            window.location.assign(`${$frontendUrl}/#/staff`);
-        } else {
-            error.fetchResult = true;
-        }
     };
 
     const submitForm = async () => {
@@ -47,9 +64,9 @@
     };
 </script>
 
-<section class="min-vh-100 backdrop d-flex align-items-center">
-    <div class="container d-flex justify-content-center">
-        <main class="w-50">
+<section class="">
+    <div class="w-100">
+        <main class="">
             <LoginCard imgSrc={uowLogoBig}>
                 <form class="px-3 my-3">
                     <div class="form-floating mb-3">

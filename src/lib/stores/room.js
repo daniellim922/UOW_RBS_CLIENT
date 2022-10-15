@@ -7,8 +7,8 @@ export let room = writable({
     allSlots: [
         {
             timeSlots: [
-                { start: "", end: "", price: 0 },
-                { start: "", end: "", price: 0 },
+                { start: "", end: "", price: 0, promo: "" },
+                { start: "", end: "", price: 0, promo: "" },
             ],
             days: [
                 { Monday: false },
