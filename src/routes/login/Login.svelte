@@ -14,11 +14,11 @@
     let serverUrl = null;
 
     if ($prod) {
-        clientUrl = $localClient;
-        serverUrl = $localServer;
-    } else {
         clientUrl = $hostedClient;
         serverUrl = $hostedServer;
+    } else {
+        clientUrl = $localClient;
+        serverUrl = $localServer;
     }
 
     const postReq = async (status) => {
