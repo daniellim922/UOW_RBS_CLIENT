@@ -12,7 +12,6 @@
 
     let clientUrl = null;
     let serverUrl = null;
-
     if ($prod) {
         clientUrl = $hostedClient;
         serverUrl = $hostedServer;
@@ -31,15 +30,14 @@
         });
         const data = await res.json();
         if (data.student_details) {
-            // sessionStorage.clear();
+            sessionStorage.clear();
             sessionStorage.setItem("student", "true");
             window.location.assign(`${clientUrl}/#/student`);
-        } else if (data.staff_details) {
-            // sessionStorage.clear();
+        }
+        if (data.staff_details) {
+            sessionStorage.clear();
             sessionStorage.setItem("staff", "true");
             window.location.assign(`${clientUrl}/#/staff`);
-        } else {
-            error.fetchResult = true;
         }
     };
 
@@ -102,17 +100,43 @@
                             Student
                         </label>
                     </div>
-                    <div class="form-check mb-3">
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="userType"
+                            id="flexRadioDefault4"
+                            bind:group={user.status}
+                            value="staff"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault4">
+                            Staff
+                        </label>
+                    </div>
+                    <div class="form-check">
                         <input
                             class="form-check-input"
                             type="radio"
                             name="userType"
                             id="flexRadioDefault2"
                             bind:group={user.status}
-                            value="staff"
+                            value="administrator"
                         />
                         <label class="form-check-label" for="flexRadioDefault2">
-                            Staff
+                            Administrator
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="userType"
+                            id="flexRadioDefault3"
+                            bind:group={user.status}
+                            value="superuser"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Superuser
                         </label>
                     </div>
                     {#if error.formInputs}

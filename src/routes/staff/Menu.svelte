@@ -1,6 +1,5 @@
 <script>
     import { localClient, prod, hostedClient } from "../../lib/stores/url.js";
-
     let clientUrl = null;
 
     if ($prod) {

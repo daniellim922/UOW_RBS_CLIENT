@@ -91,32 +91,39 @@
     ];
 </script>
 
-<section class="backdrop">
-    <div
-        class="container col-xl-10 col-xxl-8 min-vh-100 d-flex align-items-center"
-    >
-        <div class="row align-items-center h-75 bg-light p-5 rounded">
-            <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-5 fw-bold lh-1 mb-3 vstack gap-3">
-                    University Of Wollongong
-                    <p>Room Booking System</p>
-                </h1>
-                <p class="col-lg-10 fs-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Iste porro voluptatibus non laudantium eius consequatur illo
-                    fugit dicta unde, molestias modi atque illum nesciunt facere
-                    quo fuga reprehenderit ad nostrum?
-                </p>
+<div class="backdrop">
+    <section class="container min-vh-100 d-flex align-items-center p-5">
+        <main class="bg-light rounded container p-5">
+            <div class="row">
+                <div class="col-xxl-6 col-lg-6 d-flex align-items-center">
+                    <div class="text-center text-lg-start px-5">
+                        <h1
+                            class="display-xxl-5 fw-bold mb-3 vstack gap-3 pe-3"
+                        >
+                            University Of Wollongong
+                            <p class="my-3">Room Booking System</p>
+                        </h1>
+                        <p class="fs-5 pe-xxl-5">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Iste porro voluptatibus non laudantium eius
+                            consequatur illo fugit dicta unde, molestias modi
+                            atque illum nesciunt facere quo fuga reprehenderit
+                            ad nostrum?
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xxl-6 col-lg-6">
+                    <div class="">
+                        <Login />
+                    </div>
+                </div>
             </div>
-            <div class="col-md-10 mx-auto col-lg-5">
-                <Login />
-            </div>
-        </div>
-    </div>
+        </main>
+    </section>
     <Feature features={staffFeatures} title={staffTitle} />
     <Feature features={studentFeatures} title={studentTitle} />
     <Footer />
-</section>
+</div>
 
 <style>
 </style>

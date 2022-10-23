@@ -4,6 +4,7 @@ export let room = writable({
     name: "",
     size: null,
     capacity: null,
+    available: false,
     allSlots: [
         {
             timeSlots: [
@@ -19,6 +20,7 @@ export let room = writable({
                 { Saturday: false },
                 { Sunday: false },
             ],
+            availDays: [],
         },
     ],
     location: {

@@ -1,6 +1,13 @@
 <script>
     let staffSession = sessionStorage.getItem("staff");
     import { room } from "../../lib/stores/room.js";
+    import {
+        localClient,
+        localServer,
+        prod,
+        hostedClient,
+        hostedServer,
+    } from "../../lib/stores/url.js";
 
     import NoAuth from "../../lib/shared/NoAuth.svelte";
     import Card from "../../lib/components/Card.svelte";
@@ -8,8 +15,26 @@
 
     const floors = ["One", "Two", "Three", "Four", "Five"];
 
-    const submitRooms = () => {
-        console.log($room);
+    let clientUrl = null;
+    let serverUrl = null;
+    if ($prod) {
+        clientUrl = $hostedClient;
+        serverUrl = $hostedServer;
+    } else {
+        clientUrl = $localClient;
+        serverUrl = $localServer;
+    }
+
+    const submitRooms = async () => {
+        fetch(`${serverUrl}/api/staff/room/create`, {
+            method: "POST", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify($room),
+        });
+        window.location.assign(`${clientUrl}/#/staff`);
+        location.reload();
     };
 </script>
 
@@ -75,8 +100,8 @@
                                 aria-label="Default select example"
                                 bind:value={$room.location.type}
                             >
-                                <option value="T">Tutorial</option>
-                                <option value="L">Lecture</option>
+                                <option value="Tutorial">Tutorial</option>
+                                <option value="Lecture">Lecture</option>
                             </select>
                         </div>
                         <div class="col-md-3">

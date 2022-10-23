@@ -16,6 +16,7 @@
                 { Saturday: false },
                 { Sunday: false },
             ],
+            availDays: [],
         };
         $room.allSlots.push(newSlot);
         $room = $room;
