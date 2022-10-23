@@ -26,7 +26,7 @@
     }
 
     const submitRooms = async () => {
-        fetch(`${serverUrl}/api/staff/room/create`, {
+        await fetch(`${serverUrl}/api/staff/room/create`, {
             method: "POST", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",
@@ -34,7 +34,7 @@
             body: JSON.stringify($room),
         });
         window.location.assign(`${clientUrl}/#/staff`);
-        // location.reload();
+        location.reload();
     };
 </script>
 
