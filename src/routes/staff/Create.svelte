@@ -34,7 +34,7 @@
             body: JSON.stringify($room),
         });
         window.location.assign(`${clientUrl}/#/staff`);
-        location.reload();
+        // location.reload();
     };
 </script>
 
