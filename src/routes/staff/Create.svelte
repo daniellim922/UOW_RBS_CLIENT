@@ -26,15 +26,18 @@
     }
 
     const submitRooms = async () => {
-        await fetch(`${serverUrl}/api/staff/room/create`, {
+        const req = await fetch(`${serverUrl}/api/staff/room/create`, {
             method: "POST", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify($room),
         });
-        window.location.assign(`${clientUrl}/#/staff`);
-        location.reload();
+        const res = req.json();
+        if (res) {
+            window.location.assign(`${clientUrl}/#/staff`);
+            location.reload();
+        }
     };
 </script>
 
