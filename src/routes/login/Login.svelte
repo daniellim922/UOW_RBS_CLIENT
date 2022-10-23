@@ -30,12 +30,12 @@
         });
         const data = await res.json();
         if (data.student_details) {
-            sessionStorage.clear();
+            // sessionStorage.clear();
             sessionStorage.setItem("student", "true");
             window.location.assign(`${clientUrl}/#/student`);
         }
         if (data.staff_details) {
-            sessionStorage.clear();
+            // sessionStorage.clear();
             sessionStorage.setItem("staff", "true");
             window.location.assign(`${clientUrl}/#/staff`);
         }
@@ -111,32 +111,6 @@
                         />
                         <label class="form-check-label" for="flexRadioDefault4">
                             Staff
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="userType"
-                            id="flexRadioDefault2"
-                            bind:group={user.status}
-                            value="administrator"
-                        />
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Administrator
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input
-                            class="form-check-input"
-                            type="radio"
-                            name="userType"
-                            id="flexRadioDefault3"
-                            bind:group={user.status}
-                            value="superuser"
-                        />
-                        <label class="form-check-label" for="flexRadioDefault3">
-                            Superuser
                         </label>
                     </div>
                     {#if error.formInputs}
