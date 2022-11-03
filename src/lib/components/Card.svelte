@@ -6,7 +6,11 @@
     <div class="card-body py-4 px-5">
         <div>
             {#if staff}
-                <a href="#/staff">
+                <p
+                    class="text-primary"
+                    on:click={() => history.back()}
+                    role="button"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="40"
@@ -20,7 +24,7 @@
                             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                         />
                     </svg>
-                </a>
+                </p>
             {/if}
             <h5 class="card-title mb-3 fs-3 fw-bold">{title}</h5>
         </div>

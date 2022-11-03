@@ -145,7 +145,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <ViewModal {room} />
+                            <ViewModal {room} staff={true} />
                             <EditModal {room} />
                         {/each}
                     </div>

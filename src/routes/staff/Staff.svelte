@@ -41,7 +41,7 @@
 {#if staffSession == "true"}
     <section class="backdrop min-vh-100">
         <div class="container vstack gap-5 pt-5">
-            <Card title={"Dashboard"} staff={false}>
+            <Card title={"Dashboard"} staff={true}>
                 <Menu />
             </Card>
             <div class="card">

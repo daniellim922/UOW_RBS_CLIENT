@@ -2,6 +2,24 @@
     export let room;
     const floors = ["One", "Two", "Three", "Four", "Five"];
 
+    import {
+        localClient,
+        localServer,
+        prod,
+        hostedClient,
+        hostedServer,
+    } from "../../stores/url.js";
+
+    let clientUrl = null;
+    let serverUrl = null;
+    if ($prod) {
+        clientUrl = $hostedClient;
+        serverUrl = $hostedServer;
+    } else {
+        clientUrl = $localClient;
+        serverUrl = $localServer;
+    }
+
     const deleteDay = (scheduleIndex, dayIndex) => {
         const daysArray = room.schedules[scheduleIndex].days;
         daysArray.splice(dayIndex, 1);
@@ -64,8 +82,15 @@
         }
         days = days;
     };
-    const updateChanges = () => {
-        console.log(room);
+
+    const updateChanges = async () => {
+        await fetch(`${serverUrl}/api/staff`, {
+            method: "PUT", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(room),
+        });
     };
 </script>
 
