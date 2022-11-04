@@ -44,11 +44,13 @@
         end: "",
         date: "",
         promo: "",
+        price: null,
     };
 
-    const setSchedule = (start, end, room) => {
+    const setSchedule = (start, end, price, room) => {
         booking.start = start;
         booking.end = end;
+        booking.price = price;
         booking.room_id = room;
     };
 </script>
@@ -113,6 +115,7 @@
                                             setSchedule(
                                                 `${timeSlot.start}`,
                                                 `${timeSlot.end}`,
+                                                `${timeSlot.price}`,
                                                 `${room._id}`
                                             )}
                                     />

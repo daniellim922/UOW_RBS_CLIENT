@@ -29,17 +29,22 @@
             body: JSON.stringify(user),
         });
         const data = await res.json();
+
         if (data.student_details) {
             // sessionStorage.clear();
             sessionStorage.setItem("student", "true");
             sessionStorage.setItem("id", `${data._id}`);
             window.location.assign(`${clientUrl}/#/student`);
+        } else {
+            error.fetchResult = true;
         }
         if (data.staff_details) {
             // sessionStorage.clear();
             sessionStorage.setItem("staff", "true");
             sessionStorage.setItem("id", `${data._id}`);
             window.location.assign(`${clientUrl}/#/staff`);
+        } else {
+            error.fetchResult = true;
         }
     };
 
