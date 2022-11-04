@@ -30,6 +30,10 @@
         });
         const data = await res.json();
 
+        if (!data) {
+            error.fetchResult = true;
+        }
+
         if (data.student_details) {
             // sessionStorage.clear();
             sessionStorage.setItem("student", "true");
